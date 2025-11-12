@@ -1,8 +1,10 @@
 # [AAAI 2026] Redundant Queries in DETR-Based 3D Detection Methods: Unnecessary and Prunable
 
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2412.02054)
+
 This is the implentation for our paper "[Redundant Queries in DETR-Based 3D Detection Methods: Unnecessary and Prunable](https://arxiv.org/abs/2412.02054)"
 
-![](figs/gpq.png)
+![](figs/Gpq.png)
 
 ## Introduction
 
@@ -11,6 +13,10 @@ We propose a simple yet effective gradual query pruning method that accelerates 
 ## News
 
 - [2025/11/8]🔥Our paper is accepted by AAAI 2026 🎉🎉🎉.
+
+## Examples
+
+We provide an example for [PETR](petr/README.md).
 
 ## Citation
 
