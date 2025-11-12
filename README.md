@@ -16,7 +16,7 @@ We propose a simple yet effective gradual query pruning method that accelerates 
 
 ## Examples
 
-We provide an example for [PETR](petr/README.md).
+We provide examples for [PETR](PETR/README.md) and [StreamPETR](StreamPETR/README.md).
 
 ## Citation
 

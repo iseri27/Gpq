@@ -4,12 +4,10 @@ We provide an example for PETR.
 
 Follow [megvii-research/PETR](https://github.com/megvii-research/PETR) to install PETR, prepare datasets and download checkpoints.
 
-# 2. Install tgGBC
+# 2. Clone Repo
 
 ```bash
 git clone https://github.com/iseri27/Gpq
-cd Gpq
-python setup.py develop
 ```
 
 # 3. Replace Files
@@ -18,9 +16,9 @@ python setup.py develop
 cd Gpq
 mkdir -p $PETR/projects/{configs/Gpq,mmdet3d_plugin/core/hook}
 
-cp petr/projects/configs/Gpq/petr_r50_1408x512_900_300q_6+18e.py $PETR/projects/configs/Gpq/
-cp petr/projects/mmdet3d_plugin/core/hook/query_drop_hook.py $PETR/projects/mmdet3d_plugin/core/hook
-cp petr/projects/mmdet3d_plugin/models/dense_heads/petr_gpq_head.py $PETR/projects/mmdet3d_plugin/models/dense_heads
+cp PETR/projects/configs/Gpq/petr_r50_1408x512_900_300q_6+18e.py $PETR/projects/configs/Gpq/
+cp PETR/projects/mmdet3d_plugin/core/hook/query_drop_hook.py $PETR/projects/mmdet3d_plugin/core/hook
+cp PETR/projects/mmdet3d_plugin/models/dense_heads/petr_gpq_head.py $PETR/projects/mmdet3d_plugin/models/dense_heads
 ```
 
 Note: `$PETR` is the place where you install the PETR project.

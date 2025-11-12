@@ -267,6 +267,11 @@ lr_config = dict(
 )
 find_unused_parameters = False
 
+evaluation = dict(interval=num_iters_per_epoch * num_epochs, pipeline=test_pipeline)
+checkpoint_config = dict(interval=num_iters_per_epoch)
+runner = dict(type="IterBasedRunner", max_iters=num_iters_per_epoch * num_epochs)
+resume_from = None
+
 custom_hooks = [
     dict(
         type="QueryDropHook",
@@ -274,12 +279,6 @@ custom_hooks = [
         query_target=num_query - num_pruned,
     )
 ]
-
-evaluation = dict(interval=num_iters_per_epoch * num_epochs, pipeline=test_pipeline)
-checkpoint_config = dict(interval=num_iters_per_epoch)
-runner = dict(type="IterBasedRunner", max_iters=num_iters_per_epoch * num_epochs)
-load_from = "ckpts/PETRv1/petr_r50dcn_1408x512_900q_24e.pth"
-resume_from = None
-
+load_from = "checkpoints/petr_r50dcn_1408x512_900q_24e.pth"
 
 log_config = dict(interval=50, hooks=[dict(type="TextLoggerHook")])
