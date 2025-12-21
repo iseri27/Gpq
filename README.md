@@ -21,13 +21,10 @@ We provide examples for [PETR](PETR/README.md) and [StreamPETR](StreamPETR/READM
 ## Citation
 
 ```bib
-@misc{xu2025gpq,
+@inproceedings{xu2025gpq,
       title={Redundant Queries in DETR-Based 3D Detection Methods: Unnecessary and Prunable}, 
-      author={Lizhen Xu and Shanmin Pang and Wenzhao Qiu and Zehao Wu and Xiuxiu Bai and Kuizhi Mei and Jianru Xue},
+      author={Lizhen Xu and Zehao Wu and Wenzhao Qiu and Shanmin Pang and Xiuxiu Bai and Kuizhi Mei and Jianru Xue},
+      booktitle=AAAI,
       year={2025},
-      eprint={2412.02054},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2412.02054}, 
 }
 ```
