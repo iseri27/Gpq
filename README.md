@@ -24,7 +24,7 @@ We provide examples for [PETR](PETR/README.md) and [StreamPETR](StreamPETR/READM
 @inproceedings{xu2025gpq,
       title={Redundant Queries in DETR-Based 3D Detection Methods: Unnecessary and Prunable}, 
       author={Lizhen Xu and Zehao Wu and Wenzhao Qiu and Shanmin Pang and Xiuxiu Bai and Kuizhi Mei and Jianru Xue},
-      booktitle=AAAI,
+      booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
       year={2025},
 }
 ```
