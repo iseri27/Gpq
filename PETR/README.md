@@ -19,6 +19,7 @@ mkdir -p $PETR/projects/{configs/Gpq,mmdet3d_plugin/core/hook}
 cp PETR/projects/configs/Gpq/petr_r50_1408x512_900_300q_6+18e.py $PETR/projects/configs/Gpq/
 cp PETR/projects/mmdet3d_plugin/core/hook/query_drop_hook.py $PETR/projects/mmdet3d_plugin/core/hook
 cp PETR/projects/mmdet3d_plugin/models/dense_heads/petr_gpq_head.py $PETR/projects/mmdet3d_plugin/models/dense_heads
+cp PETR/projects/mmdet3d_plugin/models/detectors/gpq_petr3d.py $PETR/projects/mmdet3d_plugin/models/detectors
 ```
 
 Note: `$PETR` is the place where you install the PETR project.
@@ -35,6 +36,12 @@ Add following import to `projects/mmdet3d_plugin/models/dense_heads/__init__.py`
 
 ```python
 from .petr_gpq_head import PETRGpqHead
+```
+
+Add following import to `projects/mmdet3d_plugin/models/detectors/__init__.py`:
+
+```python
+from .gpq_petr3d.py import GpqPetr3D
 ```
 
 # 5. Pruning

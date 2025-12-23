@@ -758,6 +758,14 @@ class PETRGpqHead(AnchorFreeHead):
         loss_bbox = torch.nan_to_num(loss_bbox)
         return loss_cls, loss_bbox
 
+    def fake_loss(self, deprecated_reference_points, dtype, device):
+        N = len(deprecated_reference_points)
+        loss = torch.tensor(0, dtype=dtype, device=device)
+        if N > 0:
+            for i in range(N):
+                loss += 0.0 * deprecated_reference_points[i].mean()
+        return loss
+
     @force_fp32(apply_to=("preds_dicts"))
     def loss(self, gt_bboxes_list, gt_labels_list, preds_dicts, gt_bboxes_ignore=None):
         """ "Loss function.
@@ -838,6 +846,9 @@ class PETRGpqHead(AnchorFreeHead):
         # loss from the last decoder layer
         loss_dict["loss_cls"] = losses_cls[-1]
         loss_dict["loss_bbox"] = losses_bbox[-1]
+        loss_dict["fake_loss"] = self.fake_loss(
+            self.deprecated_reference_points, all_cls_scores.dtype, device
+        )
 
         # loss from other decoder layers
         num_dec_layer = 0

@@ -19,6 +19,7 @@ mkdir -p $StreamPETR/projects/{configs/Gpq,mmdet3d_plugin/core/hook}
 cp StreamPETR/projects/configs/Gpq/streampetr_r50_flash_900_300q_6+18e.py $StreamPETR/projects/configs/Gpq/
 cp StreamPETR/projects/mmdet3d_plugin/core/hook/query_drop_hook.py $StreamPETR/projects/mmdet3d_plugin/core/hook
 cp StreamPETR/projects/mmdet3d_plugin/models/dense_heads/streampetr_gpq_head.py $StreamPETR/projects/mmdet3d_plugin/models/dense_heads
+cp SteramPETR/projects/mmdet3d_plugin/models/detectors/gpq_petr3d.py $StreamPETR/projects/mmdet3d_plugin/models/detectors
 ```
 
 Note: `$StreamPETR` is the place where you install the StreamPETR project.
@@ -35,6 +36,12 @@ Add following import to `projects/mmdet3d_plugin/models/dense_heads/__init__.py`
 
 ```python
 from .streampetr_gpq_head import StreamPETRGpqHead
+```
+
+Add following import to `projects/mmdet3d_plugin/models/detectors/__init__.py`:
+
+```python
+from .gpq_petr3d import GpqPetr3D
 ```
 
 # 5. Pruning
