@@ -50,7 +50,6 @@ class GpqPetr3D(MVXTwoStageDetector):
         test_cfg=None,
         pretrained=None,
         num_pruned=600,
-        pruning_interval=20,
     ):
         super(GpqPetr3D, self).__init__(
             pts_voxel_layer,
@@ -74,7 +73,6 @@ class GpqPetr3D(MVXTwoStageDetector):
         self.use_grid_mask = use_grid_mask
 
         self.num_pruned = num_pruned
-        self.pruning_interval = pruning_interval
         self.masked_query_idxs = []
         self.reset_records()
 
@@ -103,7 +101,6 @@ class GpqPetr3D(MVXTwoStageDetector):
             self.query_records = torch.cat([self.query_records, cls_scores], dim=0)
 
     def prune(self):
-
         if self.query_records is None:
             return
         if len(self.masked_query_idxs) >= self.num_pruned:

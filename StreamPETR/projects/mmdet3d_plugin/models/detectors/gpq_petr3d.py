@@ -46,7 +46,6 @@ class GpqPetr3D(MVXTwoStageDetector):
         aux_2d_only=True,
         single_test=False,
         pretrained=None,
-        num_pruned=408,
         num_query=236,
         num_propagated=64,
     ):
@@ -80,7 +79,6 @@ class GpqPetr3D(MVXTwoStageDetector):
         self.aux_2d_only = aux_2d_only
         self.test_flag = False
 
-        self.num_pruned = num_pruned
         self.num_query = num_query
         self.num_propagated = num_propagated
         self.masked_query_idxs = []

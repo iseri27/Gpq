@@ -1,10 +1,8 @@
-# Copyright (c) OpenMMLab. All rights reserved.
-from mmcv.parallel import is_module_wrapper
 from mmcv.runner import HOOKS, Hook
 
 
 @HOOKS.register_module()
-class QueryDropHook(Hook):
+class GPQHook(Hook):
     """Set runner's epoch information to the model."""
 
     def __init__(
@@ -24,7 +22,7 @@ class QueryDropHook(Hook):
             runner.model.module.prune()
             num_query = runner.model.module.pts_bbox_head.num_query
 
-            if self.print_log:
+            if runner._rank == 0 and self.print_log:
                 print(f"current num_query: {num_query}")
 
                 if self.propagated_target is None and self.query_target == num_query:
@@ -32,9 +30,8 @@ class QueryDropHook(Hook):
 
             if hasattr(runner.model.module.pts_bbox_head, "num_propagated"):
                 num_propagated = runner.model.module.pts_bbox_head.num_propagated
-                if self.print_log:
+                if runner._rank == 0 and self.print_log:
                     print(f"current num_propagated: {num_propagated}")
-
                     if (
                         self.propagated_target == num_propagated
                         and self.query_target == num_query

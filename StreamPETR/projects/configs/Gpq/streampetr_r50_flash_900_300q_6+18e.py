@@ -349,7 +349,7 @@ data = dict(
 
 optimizer = dict(
     type="AdamW",
-    lr=1e-4,  # bs 2: 5e-5 || 4: 1e-4|| 8: 2e-4 || bs 16: 4e-4
+    lr=1e-4,  # bs 2: 5e-5 || 4: 1e-4|| 8: 2e-4 || bs 16: 4e-4, 裁剪时学习率减半
     paramwise_cfg=dict(
         custom_keys={
             "img_backbone": dict(
@@ -382,7 +382,7 @@ resume_from = None
 
 custom_hooks = [
     dict(
-        type="QueryDropHook",
+        type="GPQHook",
         interval=pruning_interval,
         query_target=num_query_final,
         propagated_target=num_propagated_final,

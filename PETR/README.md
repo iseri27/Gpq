@@ -29,7 +29,7 @@ Note: `$PETR` is the place where you install the PETR project.
 Add following import to `$PETR/projects/mmdet3d_plugin/__init__.py`:
 
 ```python
-from .core.hook.query_drop_hook import QueryDropHook
+from .core.hook.query_drop_hook import GPQHook
 ```
 
 Add following import to `projects/mmdet3d_plugin/models/dense_heads/__init__.py`:

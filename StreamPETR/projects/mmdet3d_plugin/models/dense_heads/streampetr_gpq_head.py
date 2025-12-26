@@ -1176,14 +1176,6 @@ class StreamPETRGpqHead(AnchorFreeHead):
                 loss += 0.0 * deprecated_reference_points[i].mean()
         return loss
 
-    def fake_loss(self, deprecated_reference_points, dtype, device):
-        N = len(deprecated_reference_points)
-        loss = torch.tensor(0, dtype=dtype, device=device)
-        if N > 0:
-            for i in range(N):
-                loss += 0.0 * deprecated_reference_points[i].mean()
-        return loss
-
     @force_fp32(apply_to=("preds_dicts"))
     def loss(self, gt_bboxes_list, gt_labels_list, preds_dicts):
         """ "Loss function.

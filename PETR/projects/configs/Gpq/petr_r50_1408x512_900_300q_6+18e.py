@@ -46,14 +46,13 @@ pruning_interval = num_iters_per_epoch * 6 // num_pruned
 data_root = "data/nuscenes/"
 
 # === lr config
-lr = 1.5e-4
+lr = 1e-4
 # === === === ===
 
 model = dict(
     type="GpqPetr3D",
     use_grid_mask=True,
     num_pruned=num_pruned,
-    pruning_interval=pruning_interval,
     img_backbone=dict(
         type="ResNet",
         depth=50,
@@ -274,7 +273,7 @@ resume_from = None
 
 custom_hooks = [
     dict(
-        type="QueryDropHook",
+        type="GPQHook",
         interval=pruning_interval,
         query_target=num_query - num_pruned,
     )
